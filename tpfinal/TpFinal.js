@@ -1,6 +1,6 @@
                                                                   
 let imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10;
-let imagen11, imagen12, imagen13, imagen14, imagen15, imagen16, imagen17, imagen18, imagen19;
+let imagen11, imagen12, imagen13, imagen14, imagen15, imagen16, imagen17, imagen18, imagen19, creditos;
 
 let imagenes = [];
 let imagenahora = 0;
@@ -57,6 +57,7 @@ function preload() {
   imagen17 = loadImage("assets/destruir el cristal-end.jpg"); //16
   imagen18 = loadImage("assets/lansarce.jpg"); //17 
   imagen19 = loadImage("assets/vi explota-end.jpg"); //18
+  creditos = loadImage("assets/creditos.jpeg"); //19
   song = loadSound('assets/song.mp3');
   explosion = loadSound('assets/explocion.mp3');
   fuego = loadSound('assets/fuego.mp3');
@@ -295,6 +296,11 @@ function draw() {
     textSize(20);
     text("Vi abraza a Jinx y trata de convencerla para volver con ella...", width - 20, 30);
 
+  } else if (imagenahora === 19) {
+    textAlign(CENTER, CENTER);
+    textSize(22);
+    text("Alumnos: Abril Solana Antonuchi y Melany Sanchez" , width / 2, height / 2 - 20);
+    text("Comision: 2\nObra: Arcane, Riot games", width / 2, height / 2);
   } 
 
   noFill();
@@ -393,8 +399,14 @@ function keyPressed() {
     else if (imagenahora === 2) imagenahora = 13;
     else if (imagenahora === 15) imagenahora = 9;
     else if (imagenahora === 17) imagenahora = 18;
+    else if (imagenahora === 19) imagenahora = 0;
     
   }
+
+  if (key === "c") {
+    imagenahora = 19; 
+  }
+
   if (empezar) {
     if (key === "p") { //pausar
       song.pause();
